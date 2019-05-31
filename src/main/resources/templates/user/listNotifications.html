@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Notifications</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${notifications} and ${notifications.size()}">You don't have any notifications!</p>
+
+<table class="table">
+    <tr>
+        <th>Notifications</th>
+    </tr>
+
+    <tr th:each="notification : ${notifications}">
+        <td th:text="${notification.notification}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>

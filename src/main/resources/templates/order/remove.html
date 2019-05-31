@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Orders</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${orders} and ${orders.size()}">There are no pending orders!</p>
+
+<form method="post">
+
+    <div th:each="order : ${orders}" class="checkbox">
+
+        <input type="checkbox" name="orderIds" th:value="${order.id}" th:id="${order.id}" />
+        <label th:for="${order.id}" th:text="'Order ' + ${order.id} + ' ---> ' + ${order.foodName} + ' ---> ' + ${order.status}"></label>
+
+    </div>
+    <p></p>
+
+    <input type="submit" value="Process Orders" />
+
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Shopping Cart</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${shoppingCart} and ${shoppingCart.size()}">The shopping cart is empty!</p>
+
+<form method="post">
+
+    <div th:each="cart : ${shoppingCart}" class="checkbox">
+
+        <input type="checkbox" name="shoppingCartIds" th:value="${cart.id}" th:id="${cart.id}" />
+        <label th:for="${cart.id}" th:text="${cart.price} + ' ' + ${cart.food.name}"></label>
+
+    </div>
+    <p></p>
+
+    <input type="submit" value="Place order" />
+
+</form>
+
+</body>
+
+</html>

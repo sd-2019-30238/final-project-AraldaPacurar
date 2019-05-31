@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Food</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${foods} and ${foods.size()}">The food list is currently empty!</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+
+    <tr th:each="food : ${foods}">
+        <td th:text="${food.name}"></td>
+        <td th:text="${food.description}"></td>
+        <td th:text="${food.price}"></td>
+    </tr>
+</table>
+
+<form method="post" style="max-width:600px;" th:object="${filterForm}">
+
+    <div class="form-group">
+        <label th:for="filter">Filter</label>
+        <input class="form-control" th:field="*{filter}" />
+        <span th:errors="*{filter}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Filter" />
+
+</form>
+
+</body>
+
+</html>

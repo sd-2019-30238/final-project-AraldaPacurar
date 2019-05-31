@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Roles</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${roles} and ${roles.size()}">There are no roles!</p>
+
+<ul>
+    <li th:each="role : ${roles}">
+
+        <a th:href="'/role/view/' + ${userId} + '/' + ${role.id}" th:text="${role.role}"></a>
+
+    </li>
+</ul>
+
+</body>
+
+</html>

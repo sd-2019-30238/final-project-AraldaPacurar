@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Add Rights</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" th:object="${form}" th:action="'/role/add-right/' + ${userId} + '/' + ${roleId}">
+
+    <div class="form-group">
+        <label th:for="rightId">Rights</label>
+        <select name="rightId">
+            <option th:each="right : *{rights}"
+                    th:text="${right.myRight}"
+                    th:value="${right.id}">
+            </option>
+        </select>
+    </div>
+    <p></p>
+
+    <input type="submit" name="Add Right" />
+
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Order</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+
+    <div th:each="food : ${foods}" class="checkbox">
+
+        <input type="checkbox" name="foodIds" th:value="${food.id}" th:id="${food.id}" />
+        <label th:for="${food.id}" th:text="${food.name}"></label>
+
+    </div>
+    <p></p>
+
+    <input type="submit" value="Add to cart" />
+
+</form>
+
+</body>
+
+</html>

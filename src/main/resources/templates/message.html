@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Error</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p></p>
+
+<ul>
+    <li th:each="message : ${messages}">
+        <p th:text="${message}"></p>
+    </li>
+</ul>
+
+</body>
+
+</html>

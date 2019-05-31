@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Fancy Restaurant</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<nav th:fragment="navigation">
+
+    <div>
+        <a th:href="'/user/hire/' + ${userId}">Hire Employee | </a>
+        <a th:href="'/user/remove/' + ${userId}">Fire Employee | </a>
+        <a th:href="'/user/list/' + ${userId}">View Users | </a>
+        <a th:href="'/user/listNotifications/' + ${userId}">View Notifications | </a>
+        <a th:href="'/role/list/' + ${userId}">View Roles | </a>
+        <a th:href="'/food/list/' + ${userId}">View Food | </a>
+        <a th:href="'/food/discount/' + ${userId}">Manage Discounts | </a>
+        <a th:href="'/food/add/' + ${userId}">Add Food | </a>
+        <a th:href="'/food/remove/' + ${userId}">Remove Food | </a>
+        <a th:href="'/order/add/' + ${userId}">Order Food | </a>
+        <a th:href="'/order/list/' + ${userId}">View Orders | </a>
+        <a th:href="'/order/history/' + ${userId}">Order History | </a>
+        <a th:href="'/order/remove/' + ${userId}">Process Orders | </a>
+        <a th:href="'/cart/list/' + ${userId}">View Cart | </a>
+        <a th:href="'/cart/add/' + ${userId}">Send Order | </a>
+        <a th:href="'/cart/remove/' + ${userId}">Remove From Cart | </a>
+        <a th:href="'/user'">Log out</a>
+    </div>
+    <p></p>
+
+</nav>
+
+</body>
+
+</html>

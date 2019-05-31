@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Shopping Cart</h1>
+
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post">
+
+<p th:unless="${shoppingCart} and ${shoppingCart.size()}">The shopping cart is currently empty!</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+
+    <tr th:each="cart : ${shoppingCart}">
+        <td th:text="${cart.food.name}"></td>
+        <td th:text="${cart.food.description}"></td>
+        <td th:text="${cart.price}"></td>
+    </tr>
+</table>
+
+<p></p>
+
+<p th:text="'Shopping cart deals: ' + ${deals}"></p>
+
+<p></p>
+
+<input type="radio" name="deal" th:value="'beer'"/>
+<label th:text="'Free Beer'"></label>
+
+<p></p>
+
+<input type="radio" name="deal" th:value="'fries'"/>
+<label th:text="'Free Fries'"></label>
+<p></p>
+
+<input type="submit" value="Add Deal" />
+
+</form>
+
+</body>
+
+</html>

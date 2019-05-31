@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Orders</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${orders} and ${orders.size()}">There are no pending orders!</p>
+
+<table class="table">
+    <tr>
+        <th>Order Id</th>
+        <th>Username</th>
+        <th>Ordered Food</th>
+        <th>Order Status</th>
+        <th>Feedback</th>
+    </tr>
+
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.user.username}"></td>
+        <td th:text="${order.food.name}"></td>
+        <td th:text="${order.status}"></td>
+        <td th:text="${order.feedback}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>

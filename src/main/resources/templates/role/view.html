@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Rights</h1>
+<p></p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<ul>
+    <li th:each="right : ${rights}" th:text="${right.myRight}"></li>
+</ul>
+
+<p th:unless="${rights} and ${rights.size()}">This role has no rights!</p>
+<p></p>
+
+<p>
+    <a th:href="'/role/add-right/' + ${userId} + '/' + ${roleId}">Add Right | </a>
+    <a th:href="'/role/remove-right/' + ${userId} + '/' + ${roleId}">Remove Right</a>
+</p>
+
+</body>
+
+</html>
